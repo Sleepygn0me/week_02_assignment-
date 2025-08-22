@@ -1,8 +1,6 @@
 console.log("hello world");
 
-//Todo: I need to store my image data
-//I can use images stored locally or stored remotely
-//use images as objects in an array
+//array to store thumbnails
 const images = [
   {
     url: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -24,7 +22,7 @@ const images = [
   },
 ];
 
-//Todo: I need to create my thumbnail images
+//function for thumbnails
 function createThumbnails(images) {
   const container = document.getElementById("thumbnailContainer");
   const display = document.getElementById("largeImgDisplay");
@@ -49,5 +47,3 @@ function createThumbnails(images) {
 }
 
 createThumbnails(images);
-
-//largeImageContainer.innerHTML = null
