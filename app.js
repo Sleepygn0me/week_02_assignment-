@@ -5,10 +5,10 @@ console.log("hello world");
 //use images as objects in an array
 const images = [
   {
-    url: "https://plus.unsplash.com/premium_photo-1666278379770-440439b08656?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     thumbnail:
-      "https://plus.unsplash.com/premium_photo-1666278379770-440439b08656?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    altText: "a white dog wearing a yellow rain coat sat on fallen leaves",
+      "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "a panda eating bamboo with a forest back ground",
   },
   {
     url: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -19,7 +19,7 @@ const images = [
   {
     url: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     thumbnail:
-      "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DE",
+      "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     altText: "polar bear on snow covered ground during daytime",
   },
 ];
@@ -27,26 +27,25 @@ const images = [
 //Todo: I need to create my thumbnail images
 function createThumbnails(images) {
   const container = document.getElementById("thumbnailContainer");
+  const display = document.getElementById("largeImgDisplay");
+  container.innerHTML = "";
 
   for (let i = 0; i < images.length; i++) {
-    const img = document.createElement("img");
-    img.src = images[i].thumbnail;
-    img.alt = images[i].altText;
-    img.classList.add("thumbImage");
-  }
-  container.appendChild(img);
-  {
+    const thumbImg = document.createElement("img");
+    thumbImg.src = images[i].thumbnail;
+    thumbImg.alt = images[i].altText;
+
+    // Optional: make thumbnail clickable to show large image
+    thumbImg.addEventListener("click", () => {
+      const display = document.getElementById("largeImgDisplay");
+      display.innerHTML = `<img src="${images[i].url}" alt="${images[i].altText}" style="max-width:100%;">`;
+    });
+
+    container.appendChild(thumbImg);
   }
 }
-// Call the function on page load
-createThumbnails(images);
 
-//select the DOM element(thumbnialContainer) to contain the thumbnails
-//this is a repetative task --> loop through the aray (using the length property)
-//inside the loop
-// - create image element
-// -update the src and alt attributes to match those in your array parameters)
-// give each img a className (img.className)
+createThumbnails(images);
 // - add an event listener to each image--> the event handler of this listener is the function you write to create large images
 // append the created images to the thumbnailContainer
 //}
