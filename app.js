@@ -34,8 +34,8 @@ function createThumbnails(images) {
     const thumbImg = document.createElement("img");
     thumbImg.src = images[i].thumbnail;
     thumbImg.alt = images[i].altText;
+    thumbImg.classList.add("thumbImg");
 
-    // Optional: make thumbnail clickable to show large image
     thumbImg.addEventListener("click", () => {
       const display = document.getElementById("largeImgDisplay");
       display.innerHTML = `<img src="${images[i].url}" alt="${images[i].altText}" style="max-width:100%;">`;
@@ -43,9 +43,13 @@ function createThumbnails(images) {
 
     container.appendChild(thumbImg);
   }
+  if (images.length > 0) {
+    display.innerHTML = `<img src="${images[0].url}" alt="${images[0].altText}" style="max-width:100%;">`;
+  }
 }
 
 createThumbnails(images);
+
 // - add an event listener to each image--> the event handler of this listener is the function you write to create large images
 // append the created images to the thumbnailContainer
 //}
