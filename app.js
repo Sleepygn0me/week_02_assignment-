@@ -50,20 +50,4 @@ function createThumbnails(images) {
 
 createThumbnails(images);
 
-// - add an event listener to each image--> the event handler of this listener is the function you write to create large images
-// append the created images to the thumbnailContainer
-//}
-
-//Todo: I need to create my large images
-//this task is the event handler for the thumbnail events.
-//funtion createLargeImagesHandler(){
-//select the large image container
-//delete the current image in the large image container
 //largeImageContainer.innerHTML = null
-//create an image
-//update src and alt values
-//add className for styling
-//append the img to the container}
-
-// add this event handler to the thumbnail event
-//call the createThumbnails function
