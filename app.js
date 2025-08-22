@@ -5,24 +5,43 @@ console.log("hello world");
 //use images as objects in an array
 const images = [
   {
-    url: "url1",
-    thumbnail: "thumbnail1",
-    altText: "altText1",
+    url: "https://plus.unsplash.com/premium_photo-1666278379770-440439b08656?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    thumbnail:
+      "https://plus.unsplash.com/premium_photo-1666278379770-440439b08656?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "a white dog wearing a yellow rain coat sat on fallen leaves",
   },
   {
-    url: "url2",
-    thumbnail: "thumbnail2",
-    altText: "altText2",
+    url: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    thumbnail:
+      "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    altText: "brown tabby kitten sitting on the floor",
   },
   {
-    url: "url3",
-    thumbnail: "thumbnail3",
-    altText: "altText3",
+    url: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    thumbnail:
+      "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DE",
+    altText: "polar bear on snow covered ground during daytime",
   },
 ];
-//Todo: I need to create my thumbnaail images
-//funtion to create thumbnails{
-//select the DOM element(thumbnialContainer) to contain the thuumbnails
+
+//Todo: I need to create my thumbnail images
+function createThumbnails(images) {
+  const container = document.getElementById("thumbnailContainer");
+
+  for (let i = 0; i < images.length; i++) {
+    const img = document.createElement("img");
+    img.src = images[i].thumbnail;
+    img.alt = images[i].altText;
+    img.classList.add("thumbImage");
+  }
+  container.appendChild(img);
+  {
+  }
+}
+// Call the function on page load
+createThumbnails(images);
+
+//select the DOM element(thumbnialContainer) to contain the thumbnails
 //this is a repetative task --> loop through the aray (using the length property)
 //inside the loop
 // - create image element
